@@ -1,8 +1,8 @@
-# Call Report Preliminary Analysis v3
+# Call Report Preliminary Analysis
 
-This folder contains the code and cached public data used to reproduce the corrected December 31, 2022 cross-sectional analysis in `call_report_preliminary_analysis_v3_filing_safe.xlsx`.
+This folder contains the code and cached public data used to reproduce the corrected December 31, 2022 cross-sectional analysis in `call_report_preliminary_analysis.xlsx`.
 
-## What changed in v3
+## What changed
 
 - The $10 billion to $250 billion asset filter is applied locally **before** percentiles, component scores, composite scores, and ranks are calculated.
 - The corrected sample contains 149 banks and excludes every institution outside the stated asset band.
@@ -32,8 +32,7 @@ Expected controls:
 - top-decile integrated-score precision: 20%;
 - stressed-survivor ranks: 21, 25, 32, 33, and 75 among 144 banks with complete trigger scores.
 
-## Filing and research use
+## research use
 
-Use the filing-safe workbook as the exhibit-facing document. Keep this reproducibility folder as technical support because the unmodified public-source FDIC downloads contain the names of operating institutions. Before making any public claim of predictive superiority, publish and timestamp a frozen specification and run the pre-stated validation tests without retuning the method.
 
 `SHA256SUMS.txt` records the integrity hashes for the archived code and source files.
