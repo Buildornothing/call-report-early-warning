@@ -9,7 +9,7 @@ This folder contains the code and cached public data used to reproduce the corre
 - The integrated trigger captures the three in-band 2023 failures in the top 15, but it also flags 12 nonfailures. Its top-decile precision is therefore 20%, and its false-positive share is 80%.
 - Uninsured-deposit concentration alone also captures all three failures in the 2023 diagnostic. The workbook does not claim that the integrated score is superior.
 - The 2023 trigger and weights are explicitly labeled post-hoc and in-sample. They must be frozen and independently timestamped before the planned 2008–2011 test.
-- The filing workbook anonymizes nonfailed institutions. The cached FDIC source files remain unaltered public-source records and therefore contain institution names.
+- The workbook anonymizes nonfailed institutions. The cached FDIC source files remain unaltered public-source records and therefore contain institution names.
 
 ## Reproduce the analysis
 
