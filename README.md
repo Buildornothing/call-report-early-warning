@@ -33,6 +33,6 @@ Expected controls:
 - stressed-survivor ranks: 21, 25, 32, 33, and 75 among 144 banks with complete trigger scores.
 
 ## research use
-
+Author: Anjola Odunaike. Read citation.cff.
 
 `SHA256SUMS.txt` records the integrity hashes for the archived code and source files.
