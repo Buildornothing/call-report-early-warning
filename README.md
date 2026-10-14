@@ -1,4 +1,4 @@
-# Call Report Early-Warning Methodology v1.0.3
+# Call Report Early-Warning Methodology v1.0.4
 
 This folder contains the code and cached public data used to reproduce the corrected December 31, 2022 cross-sectional analysis in `call_report_preliminary_analysis.xlsx`.
 
@@ -10,6 +10,12 @@ This folder contains the code and cached public data used to reproduce the corre
 - Uninsured-deposit concentration alone also captures all three failures in the 2023 diagnostic. The workbook does not claim that the integrated score is superior.
 - The 2023 trigger and weights remain explicitly labeled post-hoc and in-sample.
 - The workbook anonymizes nonfailed institutions. The cached FDIC source files remain unaltered public-source records and therefore contain institution names.
+
+## Changes in v1.0.4
+
+- Relabels the historical test T3 as "Historical holdout: 2008–2009" so the title matches its frozen design: a single 2007Q4 baseline with FDIC failures counted in the following eight quarters (2008Q1–2009Q4). The test design is unchanged.
+- Updates the matching references on the Purpose and Review Findings sheets.
+- Does not change the indicators, weights, interaction term, trigger, test designs, pass marks, or operational rules. No T3, T4, or T5 results have been calculated as of this release.
 
 ## Changes in v1.0.3
 
@@ -31,7 +37,7 @@ This folder contains the code and cached public data used to reproduce the corre
 
 ## Frozen model specification
 
-Versions 1.0.2 and 1.0.3 do not change the indicators, percentile construction, weights, interaction, or dominant-risk trigger published in version 1.0.1. The trigger-augmented score remains:
+Versions 1.0.2 through 1.0.4 do not change the indicators, percentile construction, weights, interaction, or dominant-risk trigger published in version 1.0.1. The trigger-augmented score remains:
 
 ```text
 15% rate + 25% funding + 5% credit + 5% capital
