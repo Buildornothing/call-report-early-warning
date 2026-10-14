@@ -1,4 +1,4 @@
-# Call Report Early-Warning Methodology v1.0.2
+# Call Report Early-Warning Methodology v1.0.3
 
 This folder contains the code and cached public data used to reproduce the corrected December 31, 2022 cross-sectional analysis in `call_report_preliminary_analysis.xlsx`.
 
@@ -11,6 +11,15 @@ This folder contains the code and cached public data used to reproduce the corre
 - The 2023 trigger and weights remain explicitly labeled post-hoc and in-sample.
 - The workbook anonymizes nonfailed institutions. The cached FDIC source files remain unaltered public-source records and therefore contain institution names.
 
+## Changes in v1.0.3
+
+- Adds operational rules R1–R8 to the validation roadmap for tests T3–T5: eligibility fixed at the baseline quarter, failure definition, worst-quarter measurement of capital and credit deterioration, treatment of mergers, exits, and missing Call Reports, an inconclusive rule when fewer than five outcome banks occur, confidence-interval methods, and data provenance.
+- Specifies a single 2007Q4 baseline for the 2008–2011 test (T3), with failure in the following eight quarters.
+- Applies the inconclusive rule to the 2019–2020 test (T4) as well as the prospective test (T5).
+- Adds the Zenodo concept DOI to `CITATION.cff`.
+- No bank-level 2019–2020 test results were calculated or inspected before the v1.0.2 test definition and pass criteria were publicly timestamped. No T3, T4, or T5 results have been calculated as of this release.
+- Does not change the indicators, percentile construction, weights, interaction term, or dominant-risk trigger frozen in version 1.0.1.
+
 ## Changes in v1.0.2
 
 - Marks the specification-freeze step complete. Version 1.0.1 was archived on October 8, 2026, at [https://doi.org/10.5281/zenodo.23246551](https://doi.org/10.5281/zenodo.23246551).
@@ -22,7 +31,7 @@ This folder contains the code and cached public data used to reproduce the corre
 
 ## Frozen model specification
 
-Version 1.0.2 does not change the indicators, percentile construction, weights, interaction, or dominant-risk trigger published in version 1.0.1. The trigger-augmented score remains:
+Versions 1.0.2 and 1.0.3 do not change the indicators, percentile construction, weights, interaction, or dominant-risk trigger published in version 1.0.1. The trigger-augmented score remains:
 
 ```text
 15% rate + 25% funding + 5% credit + 5% capital
@@ -35,8 +44,10 @@ The dominant-risk trigger remains the maximum of the securities market-value-gap
 
 The workbook contains the complete test definitions. In summary:
 
-- **2019–2020 pandemic-stress test (T4).** Primary test: apply the frozen v1.0.1 specification without retuning to a single 2019Q4 baseline and follow each bank for four quarters through 2020Q4. Secondary robustness test: rolling 2019Q1–2019Q4 baselines, each followed for four quarters, with bank-clustered confidence intervals. The outcome is measured over the same four-quarter window for every component: FDIC failure, a decline in equity-to-assets of at least 2 percentage points, or an increase in noncurrent loans-to-gross loans of at least 1 percentage point that also reaches 2%. An eight-quarter failure analysis may be reported separately as a secondary endpoint. Any results from 2020 baselines are labeled contemporaneous monitoring, not pre-stress prediction. The primary test passes only if the integrated score has an AUC of at least 0.70, exceeds the best single-ratio AUC by at least 0.03, and improves top-decile precision by at least 5 percentage points; secondary and monitoring results do not determine pass or fail.
-- **Prospective test (T5).** Use a single 2026Q3 baseline, the first quarter whose Call Report data were not available when version 1.0.1 was frozen. Follow each eligible bank for eight quarters through 2028Q3, using the same outcome components measured over that eight-quarter window. The test has the same pass marks as the T4 primary test. If fewer than five outcome events occur, report the test as inconclusive and continue prospective observation without retuning.
+- **2019–2020 pandemic-stress test (T4).** Primary test: apply the frozen v1.0.1 specification without retuning to a single 2019Q4 baseline and follow each bank for four quarters through 2020Q4. Secondary robustness test: rolling 2019Q1–2019Q4 baselines, each followed for four quarters, with bank-clustered confidence intervals. The outcome is measured over the same four-quarter window for every component, at the worst quarter in that window: FDIC failure, a decline in equity-to-assets of at least 2 percentage points, or an increase in noncurrent loans-to-gross loans of at least 1 percentage point that also reaches 2%. An eight-quarter failure analysis may be reported separately as a secondary endpoint. Any results from 2020 baselines are labeled contemporaneous monitoring, not pre-stress prediction. The primary test passes only if the integrated score has an AUC of at least 0.70, exceeds the best single-ratio AUC by at least 0.03, and improves top-decile precision by at least 5 percentage points; the test is inconclusive if the primary cohort has fewer than five outcome banks; secondary and monitoring results do not determine pass or fail.
+- **Prospective test (T5).** Use a single 2026Q3 baseline, the first quarter whose Call Report data were not available when version 1.0.1 was frozen. Follow each eligible bank for eight quarters through 2028Q3, using the same outcome components measured at the worst quarter in that eight-quarter window. The test has the same pass marks as the T4 primary test. If fewer than five outcome events occur, report the test as inconclusive and continue prospective observation without retuning.
+
+- **Operational rules (R1–R8).** The workbook's Validation Roadmap defines eligibility, failures, worst-quarter deterioration, mergers and missing reports, the inconclusive rule, confidence intervals (DeLong for AUC; bank-level bootstrap with 2,000 resamples for capture and precision; bank-clustered bootstrap for rolling cohorts), and data provenance.
 
 A failed or inconclusive test will be reported. No superiority claim will be made unless the prespecified criteria are met.
 
