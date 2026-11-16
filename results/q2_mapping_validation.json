@@ -1,0 +1,18 @@
+{
+  "validation_period": "2026Q2",
+  "fdic_api_records_in_asset_band": 147,
+  "ffiec_call_report_records_in_asset_band": 141,
+  "matched_records": 141,
+  "fdic_records_not_in_call_report_bulk": 6,
+  "not_in_call_report_names": [
+    "STANDARD CHARTERED BANK PLC",
+    "BANCO BILBAO VIZCAYA SA",
+    "BANK OF CHINA",
+    "STATE BANK OF INDIA",
+    "BANK OF BARODA",
+    "BANK HAPOALIM B M"
+  ],
+  "not_in_call_report_explanation": "These six records are U.S. branches of foreign banks that file FFIEC 002, not the FFIEC Call Report series used for this methodology.",
+  "fdic_api_index_created": "2026-08-19T18:58:33Z",
+  "mapping_conclusion": "The mapping reproduces the cached FDIC fields exactly for all comparable records except two values for one bank whose Call Report was amended after the FDIC API index was created."
+}

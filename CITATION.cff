@@ -4,7 +4,8 @@ authors:
 - family-names: "Odunaike"
   given-names: "Anjola"
 title: "call-report-early-warning"
-version: 1.0.4
-date-released: 2026-10-14
-url: "https://github.com/Buildornothing/call-report-early-warning/releases/tag/v1.0.4"
+version: 1.1.0
+date-released: 2026-11-15
+repository-code: "https://github.com/Buildornothing/call-report-early-warning"
+url: "https://github.com/Buildornothing/call-report-early-warning/releases/tag/v1.1.0"
 doi: "10.5281/zenodo.23245830"

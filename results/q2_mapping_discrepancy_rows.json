@@ -1,0 +1,22 @@
+[
+  {
+    "field":"NALNLS",
+    "CERT":12010,
+    "NAME":"PROVIDENT BANK",
+    "FDIC_API_value_thousands":111264,
+    "FFIEC_bulk_value_thousands":136885.0,
+    "difference_thousands":25621.0,
+    "Call_Report_submission_updated":"2026-08-26T14:23:38",
+    "explanation":"The current FFIEC bulk file reflects a later amended filing than the cached FDIC API index; this is a source-vintage difference, not a field-mapping difference."
+  },
+  {
+    "field":"P3LNLS",
+    "CERT":12010,
+    "NAME":"PROVIDENT BANK",
+    "FDIC_API_value_thousands":21429,
+    "FFIEC_bulk_value_thousands":21473.0,
+    "difference_thousands":44.0,
+    "Call_Report_submission_updated":"2026-08-26T14:23:38",
+    "explanation":"The current FFIEC bulk file reflects a later amended filing than the cached FDIC API index; this is a source-vintage difference, not a field-mapping difference."
+  }
+]

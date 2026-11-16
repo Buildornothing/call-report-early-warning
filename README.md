@@ -1,6 +1,6 @@
-# Call Report Early-Warning Methodology v1.0.4
+# Call Report Early-Warning Methodology v1.1.0
 
-This folder contains the code and cached public data used to reproduce the corrected December 31, 2022 cross-sectional analysis in `call_report_preliminary_analysis.xlsx`.
+This folder contains the code and cached public data used to reproduce the corrected December 31, 2022 diagnostic and the frozen model's September 30, 2026 prospective baseline scores in `call_report_preliminary_analysis.xlsx`.
 
 ## Release scope
 
@@ -9,7 +9,19 @@ This folder contains the code and cached public data used to reproduce the corre
 - The integrated trigger captures the three in-band 2023 failures in the top 15, but it also flags 12 nonfailures. Its top-decile precision is therefore 20%, and its false-positive share is 80%.
 - Uninsured-deposit concentration alone also captures all three failures in the 2023 diagnostic. The workbook does not claim that the integrated score is superior.
 - The 2023 trigger and weights remain explicitly labeled post-hoc and in-sample.
-- The workbook anonymizes nonfailed institutions. The cached FDIC source files remain unaltered public-source records and therefore contain institution names.
+- The historical diagnostic sheets anonymize nonfailed institutions. The prospective publication identifies institutions so the public scores are auditable; the names and underlying Call Report data are public.
+
+## Changes in v1.1.0
+
+- Publishes the prespecified T5 baseline scores using the FFIEC 2026Q3 bulk Call Report release processed on November 14, 2026.
+- Applies the indicators, percentile construction, weights, rate-funding interaction, and dominant-risk trigger exactly as frozen in version 1.0.1. Nothing was retuned after seeing the 2026Q3 data.
+- Includes 140 Call Report filers in the frozen $10 billion to $250 billion asset band. Of these, 139 receive complete integrated scores. Charles Schwab Trust Bank is retained in the population but is not assigned an integrated score because it reports no loans, so the frozen credit ratios have no denominator.
+- Defines the T5 cohort under operational rule R1 (v1.0.3): banks whose 2026Q3 Call Report shows total assets of $10 billion to $250 billion and complete trigger inputs. The 2022 development diagnostic used the FDIC BankFind financial extract, which also contains insured U.S. branches of foreign banks (for example, Bank of China, Standard Chartered Bank, BBVA, and State Bank of India) that file the FFIEC 002 report rather than the Call Report. Those branches are therefore outside the T5 cohort and outside the T5 percentile population. This population definition is stated before any prospective outcome is observed.
+- States the treatment of unscored banks before any outcome is observed: a bank in the T5 cohort without a complete integrated score is excluded from the AUC, top-decile capture, and precision calculations and is reported separately with its outcome. The top-decile cutoff remains 14 banks, as published in this release.
+- Flags 14 institutions under the frozen top-decile rule. These flags are research prioritization measures, not bank ratings, safety-and-soundness determinations, or failure predictions.
+- Opens, but does not evaluate, the eight-quarter prospective outcome window through 2028Q3. No AUC, precision, capture, superiority, pass, or fail claim is reported in this release.
+- Adds an offline field-mapping validation against 2026Q2 FDIC BankFind data. The mapping matches every comparable field exactly except two values for one bank whose Call Report was amended after the cached FDIC API index was created. Six foreign-bank branches in the FDIC sample are documented as FFIEC 002 filers and are not part of the Call Report population.
+- Adds the official FFIEC 2026Q3 raw ZIP, the Q2 validation sources, the publication script, processed scores, validation reports, updated workbook sheets, and complete checksums.
 
 ## Changes in v1.0.4
 
@@ -37,7 +49,7 @@ This folder contains the code and cached public data used to reproduce the corre
 
 ## Frozen model specification
 
-Versions 1.0.2 through 1.0.4 do not change the indicators, percentile construction, weights, interaction, or dominant-risk trigger published in version 1.0.1. The trigger-augmented score remains:
+Versions 1.0.2 through 1.1.0 do not change the indicators, percentile construction, weights, interaction, or dominant-risk trigger published in version 1.0.1. The trigger-augmented score remains:
 
 ```text
 15% rate + 25% funding + 5% credit + 5% capital
@@ -61,7 +73,7 @@ A failed or inconclusive test will be reported. No superiority claim will be mad
 
 Requirements: Python 3.11 or newer, pandas, and numpy.
 
-From this directory, run:
+From this directory, run the historical diagnostic:
 
 ```bash
 python analysis.py --offline
@@ -78,7 +90,30 @@ Expected controls:
 - top-decile integrated-score precision: 20%;
 - stressed-survivor ranks: 21, 25, 32, 33, and 75 among 144 banks with complete trigger scores.
 
+Publish the 2026Q3 prospective baseline and rerun the field-mapping validation with:
+
+```bash
+python prospective_2026q3.py
+```
+
+That command reads only the cached public files in `data/raw/` and writes:
+
+- `data/processed/prospective_scores_2026q3.csv`;
+- `results/prospective_summary_2026q3.json`;
+- `results/q2_mapping_validation.csv` and `.json`; and
+- `results/q2_mapping_discrepancies.csv`.
+
+Expected prospective controls:
+
+- eligible 2026Q3 Call Report filers in the asset band: 140;
+- banks with complete integrated scores: 139;
+- frozen top-decile cutoff and flagged count: 14;
+- prospective outcomes evaluated: 0; and
+- outcome window end: September 30, 2028.
+
 ## Research use
 Author: Anjola Odunaike. See `CITATION.cff` for citation details.
 
 `SHA256SUMS.txt` records the integrity hashes for the complete release package, including the workbook.
+
+This work was conducted independently using only public regulatory data. It does not use any employer's data, and no employer endorsement is stated or implied.

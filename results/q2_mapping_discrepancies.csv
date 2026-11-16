@@ -1,0 +1,3 @@
+field,CERT,NAME,FDIC_API_value_thousands,FFIEC_bulk_value_thousands,difference_thousands,Call_Report_submission_updated,explanation
+NALNLS,12010,PROVIDENT BANK,111264,136885.0,25621.0,2026-08-26T14:23:38,"The current FFIEC bulk file reflects a later amended filing than the cached FDIC API index; this is a source-vintage difference, not a field-mapping difference."
+P3LNLS,12010,PROVIDENT BANK,21429,21473.0,44.0,2026-08-26T14:23:38,"The current FFIEC bulk file reflects a later amended filing than the cached FDIC API index; this is a source-vintage difference, not a field-mapping difference."

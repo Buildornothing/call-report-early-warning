@@ -1,0 +1,12 @@
+field,records_compared,exact_matches,mismatch_count,max_absolute_difference_thousands
+ASSET,141,141,0,0.0
+DEP,141,141,0,0.0
+EQ,141,141,0,0.0
+CHBAL,141,141,0,0.0
+SC,141,141,0,0.0
+SCMV,141,141,0,0.0
+DEPUNINS,140,140,0,0.0
+LNLSGR,141,141,0,0.0
+NALNLS,141,140,1,25621.0
+P3LNLS,141,140,1,44.0
+P9LNLS,141,141,0,0.0

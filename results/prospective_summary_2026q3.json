@@ -1,0 +1,47 @@
+{
+  "release_version": "1.1.0",
+  "baseline_quarter": "2026Q3",
+  "baseline_date": "2026-09-30",
+  "ffiec_snapshot_date": "2026-11-14",
+  "source": "FFIEC Central Data Repository bulk Call Report files",
+  "source_url": "https://cdr.ffiec.gov/public/PWS/DownloadBulkData.aspx",
+  "asset_band": "$10 billion to $250 billion, inclusive",
+  "eligible_call_report_filers": 140,
+  "banks_with_complete_integrated_scores": 139,
+  "banks_not_scored": 1,
+  "unscored_records": [
+    {
+      "NAME": "CHARLES SCHWAB TRUST BANK",
+      "CERT": 59108,
+      "score_status": "Not scored - no loan denominator for frozen credit ratios"
+    }
+  ],
+  "top_decile_cutoff_bank_count": 14,
+  "top_decile_flagged_bank_count": 14,
+  "outcome_window_end": "2028-09-30",
+  "outcome_status": "Open; no prospective outcomes evaluated",
+  "performance_status": "Not yet evaluable",
+  "frozen_model": "15% rate + 25% funding + 5% credit + 5% capital + 20% rate-funding interaction + 30% dominant-risk trigger",
+  "dominant_risk_trigger": "Maximum of the securities market-value-gap percentile and the uninsured-deposit percentile",
+  "interpretation_warning": "The scores are research prioritization measures, not bank ratings, safety-and-soundness determinations, or failure predictions.",
+  "raw_zip_sha256": "ffe883452f64557941c6cfa6eb4db697f9cb946fb458f714ab01f9de2924a3a2",
+  "processed_scores_sha256": "24579624b4e66cc062f67ac00f373ccc2118e60da7e44b12bb6b96518df838fc",
+  "mapping_validation": {
+    "validation_period": "2026Q2",
+    "fdic_api_records_in_asset_band": 147,
+    "ffiec_call_report_records_in_asset_band": 141,
+    "matched_records": 141,
+    "fdic_records_not_in_call_report_bulk": 6,
+    "not_in_call_report_names": [
+      "STANDARD CHARTERED BANK PLC",
+      "BANCO BILBAO VIZCAYA SA",
+      "BANK OF CHINA",
+      "STATE BANK OF INDIA",
+      "BANK OF BARODA",
+      "BANK HAPOALIM B M"
+    ],
+    "not_in_call_report_explanation": "These six records are U.S. branches of foreign banks that file FFIEC 002, not the FFIEC Call Report series used for this methodology.",
+    "fdic_api_index_created": "2026-08-19T18:58:33Z",
+    "mapping_conclusion": "The mapping reproduces the cached FDIC fields exactly for all comparable records except two values for one bank whose Call Report was amended after the FDIC API index was created."
+  }
+}
